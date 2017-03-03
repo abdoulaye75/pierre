@@ -1,0 +1,87 @@
+
+html, body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#page{
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: red;
+}
+
+#resultat{
+border: 2px solid black;	
+}
+
+.icone{
+	border: 2px solid black;
+	display: inline-block;
+	height: 111px;
+
+	box-shadow: 1px 1px 1px black;
+}
+
+.icone:hover{
+	cursor: pointer;
+	border: 2px solid black;
+	display: inline-block;
+	height: 111px;
+	opacity: 0.8;
+}
+
+.icone:active{
+	border: 4px solid white;
+	
+	box-shadow: 1px 1px 1px black;
+}
+
+
+#resultat{
+width: 50%;
+height: 50px;
+margin: auto;
+border: 5px solid black;
+background-color: maroon;
+color: white;
+font-size: 3em;
+font-weight: bold;
+}
+
+
+#cartes{
+	display: flex;
+	justify-content: space-around;
+	width: 90%;
+	margin:auto;
+	margin-top: 90px;
+}
+#ordi{
+
+	width: 200px;
+	height: 200px;
+	background-color: #CCC;
+	margin: 20px auto;
+border: 2px solid black;	
+}
+
+#joueurTable{
+		
+		margin: auto;
+		margin-top: 30px;
+}
+
+.table{
+	width: 200px;
+	height: 200px;
+	background-color: #CCC;
+	border: 2px solid black;	
+	text-align: center;
+	
+	color: red;
+	border-radius: 2px;
+}
+
