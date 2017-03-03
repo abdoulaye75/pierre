@@ -12,28 +12,30 @@ var ordiPierre="pierre";
 var ordiCiseaux="ciseaux";
 var ordiSpock="spock";
 var ordiLezard="lezard";
-var victoire=true;
+var victoire;
 var ordiTable = document.getElementById("ordi");
 
 
 var images = document.querySelectorAll(".image");
 
 
-	for (var i=0; i<images.length; i++){
+	for (var i=0; i<images.length; i++){ // on parcourt le tableau qui contient toutes les balises de classe image
 		
 		
 
-		images[i].addEventListener("click", function(){
+		images[i].addEventListener("click", function(){ /* au clic d'une image, l'image sélectionnée apparaît
+			sur le bloc choix de l'utilisateur ET de l'ordi */
 
 		var im = document.createElement("img");
-		im.src= this.src;
+		im.src= this.src; // récupère la valeur de src de chaque image
 		joueurTable.appendChild(im);	
-		choixJoueur = this.id;
+		choixJoueur = this.id; // récupère la valeur de l'id de chaque image
 
 
-		var x = Math.random();
+		var x = Math.random(); // l'ordi fait un choix aléatoire
 		var srcOrdi = "";
 
+// LES SITUATIONS POSSIBLES DANS DES CONDITIONS IF/ELSE IF ET SWITCH
 	if(x >= 0 && x <= 0.19){
 	  ordiChoix = ordiPapier;
 	   srcOrdi = images[1].src;
@@ -55,137 +57,137 @@ var images = document.querySelectorAll(".image");
 	  ordiChoix = ordiLezard;
 	   srcOrdi = images[4].src;
 	}
-	if (choixJoueur = "pierre") {
+	if (choixJoueur === "pierre") {
 	switch (ordiChoix) {
 	  case ordiPapier:
-	  victoire = false;
+	  victoire = 1;
 	  break;
 
 	  case ordiPierre:
-	  victoire = false;
+	  victoire = 3;
 	  break;
 
 	  case ordiCiseaux:
-	  victoire = true;
+	  victoire = 1;
 	  break;
 
 	  case ordiSpock:
-	  victoire = false;
+	  victoire = 2;
 	  break;
 
 	  case ordiLezard:
-	  victoire = true;
+	  victoire = 1;
 	  break;
 
 	}
 
 	}
 
-	if (choixJoueur = "feuille") {
+	if (choixJoueur === "feuille") {
 
 	switch (ordiChoix) {
 	  case ordiPapier:
-	  victoire = false;
+	  victoire = 3;
 	  break;
 
 	  case ordiPierre:
-	  victoire = true;
+	  victoire = 1;
 	  break;
 
 	  case ordiCiseaux:
-	  victoire = false;
+	  victoire = 2;
 	  break;
 
 	  case ordiSpock:
-	  victoire = true;
+	  victoire = 1;
 	  break;
 
 	  case ordiLezard:
-	  victoire = false;
+	  victoire = 2;
 	  break;
 
 	}
 
 	}
 
-	if (choixJoueur = "ciseaux") {
-
-	switch (ordiChoix) {
-
-	  case ordiPapier:
-	  victoire = true;
-	  break;
-
-	  case ordiPierre:
-	  victoire = false;
-	  break;
-
-	  case ordiCiseaux:
-	  victoire = false;
-	  break;
-
-	  case ordiSpock:
-	  victoire = false;
-	  break;
-
-	  case ordiLezard:
-	  victoire = true;
-	  break;
-
-	}
-
-	}
-
-	if (choixJoueur = "spock") {
+	if (choixJoueur === "ciseaux") {
 
 	switch (ordiChoix) {
 
 	  case ordiPapier:
-	  victoire = false;
+	  victoire = 1;
 	  break;
 
 	  case ordiPierre:
-	  victoire = true;
+	  victoire = 2;
 	  break;
 
 	  case ordiCiseaux:
-	  victoire = false;
+	  victoire = 3;
 	  break;
 
 	  case ordiSpock:
-	  victoire = false;
+	  victoire = 1;
 	  break;
 
 	  case ordiLezard:
-	  victoire = false;
+	  victoire = 1;
 	  break;
 
 	}
 
 	}
 
-	if (choixJoueur = "lezard") {
+	if (choixJoueur === "spock") {
 
 	switch (ordiChoix) {
 
 	  case ordiPapier:
-	  victoire = true;
+	  victoire = 2;
 	  break;
 
 	  case ordiPierre:
-	  victoire = false;
+	  victoire = 1;
 	  break;
 
 	  case ordiCiseaux:
-	  victoire = false;
+	  victoire = 1;
 	  break;
 
 	  case ordiSpock:
-	  victoire = true;
+	  victoire = 3;
 	  break;
 
 	  case ordiLezard:
-	  victoire = false;
+	  victoire = 1;
+	  break;
+
+	}
+
+	}
+
+	if (choixJoueur === "lezard") {
+
+	switch (ordiChoix) {
+
+	  case ordiPapier:
+	  victoire = 1;
+	  break;
+
+	  case ordiPierre:
+	  victoire = 2;
+	  break;
+
+	  case ordiCiseaux:
+	  victoire = 2;
+	  break;
+
+	  case ordiSpock:
+	  victoire = 1;
+	  break;
+
+	  case ordiLezard:
+	  victoire = 3;
 	  break;
 
 	}
@@ -199,7 +201,7 @@ var images = document.querySelectorAll(".image");
 			console.log(ordiChoix);	
 			console.log(srcOrdi);
 
-			var imOrdi = document.createElement("img");
+			var imOrdi = document.createElement("img"); // on insère l'image qui correspond au choix de l'ordi
 		imOrdi.src= srcOrdi;
 		ordiTable.appendChild(imOrdi);	
 		
@@ -209,13 +211,16 @@ var images = document.querySelectorAll(".image");
 
 
 
+// la fin de jeu
+	if (victoire===1){
 
-	if (victoire===true){
-
-	 resultat.innerHTML="<p>YOU WIN!</p>";
-	}else{
-	resultat.innerHTML="<p>YOU LOOSE! HA HA HA!</p>";
-
-		}
+	 resultat.innerHTML="YOU WIN!";
+	}
+	else if (victoire === 2){
+	resultat.innerHTML="YOU LOOSE! HA HA HA!";
+	}
+	else if (victoire === 3) {
+	resultat.innerHTML="Equality!";
+	}
 	});
 	}
